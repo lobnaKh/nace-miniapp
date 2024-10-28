@@ -36,10 +36,10 @@ public class NaceController {
 	}
 
 
-	@GetMapping("/nace/{orderId}")
-	public ResponseEntity<?> getNace(@PathVariable("orderId") Long orderId) {
+	@GetMapping("/nace/{order}")
+	public ResponseEntity<?> getNace(@PathVariable("order") Long order) {
 		try {
-			Nace nace = this.naceService.getNaceByOrder(orderId);
+			Nace nace = this.naceService.getNaceByOrder(order);
 			return new ResponseEntity(nace, HttpStatus.OK);
 		} catch (ResourceNotFoundException e) {
 			return ResponseEntity.badRequest().body(e.getMessage());
